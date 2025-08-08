@@ -145,6 +145,17 @@ app_license = "mit"
 # 	}
 # }
 
+doc_events = {
+    "Sales Order": {
+        "on_submit": "erpnext_custom.sales_order_custom.handle_vip_sales_order"
+    }
+}
+
+
+
+
+
+
 # Scheduled Tasks
 # ---------------
 
