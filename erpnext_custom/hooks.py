@@ -28,6 +28,8 @@ app_license = "mit"
 # app_include_css = "/assets/erpnext_custom/css/erpnext_custom.css"
 # app_include_js = "/assets/erpnext_custom/js/erpnext_custom.js"
 
+app_include_js = "/assets/your_app/js/sales_invoice.js"
+
 # include js, css files in header of web template
 # web_include_css = "/assets/erpnext_custom/css/erpnext_custom.css"
 # web_include_js = "/assets/erpnext_custom/js/erpnext_custom.js"
@@ -144,6 +146,16 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+
+doc_events = {
+    "Sales Order": {
+        "on_update": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_order",
+    },
+    "Sales Invoice": {
+        "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice"
+    },
+}   
+
 
 # Scheduled Tasks
 # ---------------
