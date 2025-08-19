@@ -255,3 +255,4 @@ doc_events = {
 # }
 
 fixtures = ["Workflow"]
+    
