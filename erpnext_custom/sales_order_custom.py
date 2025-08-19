@@ -53,3 +53,12 @@ def send_material_request_email(mr_name):
         subject=f"[Action Needed] Material Request {doc.name} Created",
         message=message
     )
+
+def check_vip_customer(doc, method):
+    customer = frappe.get_doc("Customer", doc.customer)
+
+    if customer.custom_is_vip_customer:
+        frappe.msgprint(f"Customer {customer.customer_name} is a VIP! ")
+        
+    else:
+        frappe.msgprint(f"Customer {customer.customer_name} is not a VIP.")
