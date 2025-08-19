@@ -153,10 +153,10 @@ doc_events = {
         "on_update": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_order",
     },
     "Sales Invoice": {
-        "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice"
-    },
+        "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice",
+        "on_submit": "erpnext_custom.utils.check_vip_customer"
+    }
 }
-
 
 
 # Scheduled Tasks
