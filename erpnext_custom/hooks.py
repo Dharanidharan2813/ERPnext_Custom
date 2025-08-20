@@ -260,4 +260,9 @@ after_migrate = [
     "erpnext_custom.install.load_workflows_from_fixtures"
 ]
 
-    
+
+
+
+after_migrate = [
+    "erpnext_custom.i.load_workflows_from_fixtures"
+]
