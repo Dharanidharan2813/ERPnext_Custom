@@ -5,4 +5,9 @@
 [post_model_sync]
 # Patches added in this section will be executed after doctypes are migrated
 
-erpnext_custom.patches.create_default_workflows
+erpnext_custom.patches.2025_08_19_create_sales_invoice_workflow
+erpnext_custom.patches.2025_08_19_create_purchase_order_workflow
+erpnext_custom.patches.2025_08_19_create_sales_order_workflow
+erpnext_custom.patches.2025_08_19_create_purchase_invoice_workflow
+erpnext_custom.patches.2025_08_19_create_material_request_workflow
+
