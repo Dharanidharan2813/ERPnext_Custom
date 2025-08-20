@@ -256,5 +256,8 @@ doc_events = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-fixtures = ["Workflow"]
+after_migrate = [
+    "erpnext_custom.install.load_workflows_from_fixtures"
+]
+
     
