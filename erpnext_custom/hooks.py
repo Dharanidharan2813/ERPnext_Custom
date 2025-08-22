@@ -155,9 +155,11 @@ doc_events = {
     "Sales Invoice": {
         "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice",
         "on_submit": "erpnext_custom.utils.check_vip_customer"
-        
-    }
+
+
+    },
 }
+
 
 
 # Scheduled Tasks
@@ -263,6 +265,4 @@ after_migrate = [
     "erpnext_custom.install.load_workflows_from_fixtures"
 
 ]
-
-
 
