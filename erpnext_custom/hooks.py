@@ -150,17 +150,19 @@ app_include_js = "/assets/your_app/js/sales_invoice.js"
 doc_events = {
     "Sales Order": {
         "on_submit": "erpnext_custom.sales_order_custom.handle_vip_sales_order",
-        "on_update": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_order",
+        "on_update": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_order"
     },
     "Sales Invoice": {
         "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice",
         "on_submit": "erpnext_custom.utils.check_vip_customer"
+        
     }
 }
 
 
 # Scheduled Tasks
 # ---------------
+
 
 # scheduler_events = {
 # 	"all": [
@@ -257,8 +259,8 @@ doc_events = {
 # }
 
 after_migrate = [
-    "erpnext_custom.install.load_workflows_from_fixtures",
-    "erpnext_custom.i.load_workflows_from_fixtures"
+    "erpnext_custom.i.load_workflows_from_fixtures",
+    "erpnext_custom.install.load_workflows_from_fixtures"
 
 ]
 
