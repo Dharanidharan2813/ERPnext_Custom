@@ -152,7 +152,8 @@ doc_events = {
         "on_update": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_order",
     },
     "Sales Invoice": {
-        "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice"
+        "before_insert": "erpnext_custom.erpnext_custom.doc_event.sales_order.validate_sales_invoice",
+
     },
 }   
 
@@ -257,5 +258,3 @@ doc_events = {
 after_migrate = [
     "erpnext_custom.install.load_workflows_from_fixtures"
 ]
-
-    
