@@ -1,6 +1,8 @@
 import frappe
 from frappe.utils import get_url_to_form
 from frappe import _
+from erpnext_custom.utils.telegram_utils import send_telegram_message
+
 
 def handle_vip_sales_order(doc, method):
     customer = frappe.get_doc("Customer", doc.customer)
@@ -40,8 +42,7 @@ def create_material_request(sales_order, item, warehouse):
 def send_material_request_email(mr_name):
     doc = frappe.get_doc("Material Request", mr_name)
     url = get_url_to_form("Material Request", doc.name)
-
-    message = f"""
+    email_message = f"""
     Dear Warehouse Manager,<br><br>
     A new Material Request <b>{doc.name}</b> has been created from a VIP Sales Order.<br>
     <a href="{url}">Click here to view and take action</a>.<br><br>
@@ -51,8 +52,18 @@ def send_material_request_email(mr_name):
     frappe.sendmail(
         recipients=["22ita58@karpagamtech.ac.in"],
         subject=f"[Action Needed] Material Request {doc.name} Created",
-        message=message
+        message=email_message
     )
+
+    tg_message = f"📦 Material Request <b>{doc.name}</b> has been created from a VIP Sales Order."
+
+    buttons = [[{"text": doc.name, "url": url}]]
+
+    chat_id = frappe.get_conf().get("telegram_chat_id")
+    send_telegram_message(chat_id, tg_message, parse_mode="HTML", buttons=buttons)
+
+
+
 
 def check_vip_customer(doc, method):
     customer = frappe.get_doc("Customer", doc.customer)
